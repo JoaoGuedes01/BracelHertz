@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#1b2c47" />
+
+  <!--<script src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+  <script src='http://localhost:3005/socket.io/socket.io.js'></script>-->
+
+  <title>BracelHertZ - Registar Funcionário</title>
+  <link rel="icon" type="image/png" href="img/bracelhertzv3.png" />
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="/img/icons/icon-152x152.png">
+
+  <style>
+    @media (max-width: 1000px) {
+      #test123 {
+        width: 545px;
+        height: 285px;
+      }
+
+      #test1234 {
+        zoom: 50%;
+      }
+
+      #foto123 {
+        width: 55%;
+        height: 570px;
+      }
+
+      #whereithappens {
+        margin-left: -430px;
+      }
+
+      #whereithappens1 {
+        width: 560px;
+      }
+
+      #whereithappens2 {
+        width: 560px;
+      }
+
+      #whereithappens3 {
+        width: 560px;
+      }
+
+      #dot_dot {
+        display: flex;
+        margin-left: 595px;
+        margin-bottom: 1.5%;
+        zoom: 46%;
+        width: 275px;
+        margin-top: -45px;
+      }
+    }
+
+    @media (max-height: 650px) and (min-width:1000px) {
+      #content123 {
+        zoom: 80%;
+      }
+    }
+
+    @media (max-height: 540px) and (min-width:1000px) {
+      #content123 {
+        zoom: 70%;
+      }
+
+      #dot_dot {
+        margin-left: 740px;
+      }
+    }
+
+    @media (max-height: 480px) and (min-width:1000px) {
+      #content123 {
+        zoom: 60%;
+      }
+
+      #dot_dot {
+        margin-left: 740px;
+      }
+    }
+
+    @media (max-width: 650px) and (min-width:480px) {
+      #content123 {
+        zoom: 70%;
+      }
+
+      #dot_dot {
+        margin-left: 740px;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      #foto123 {
+        width: 75%;
+        height: 100%;
+      }
+
+      #whereithappens {
+        margin-left: -25%;
+      }
+
+      #test123 {
+        height: 572px;
+        width: 100%;
+      }
+
+      #dot_dot {
+        display: flex;
+        margin-left: -6%;
+        margin-bottom: 1.5%;
+        margin-top: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #dot_dot {
+        margin-left: 740px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1000px) {
+      .col-md-6 {
+        flex: 0 0 35%;
+      }
+
+      #dot_dot {
+        margin-left: 670px;
+      }
+    }
+
+    @media (max-height: 450px) {
+      #content123 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #content123 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) and (max-height: 450px) {
+      #content123 {
+        display: none;
+      }
+    }
+  </style>
+  <!-- Include Jquery here in a script tag -->
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a id="dashBoard" class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+        <div class="sidebar-brand-icon ">
+          <img class="fas fa-laugh-wink logo1" src="img/pul.png">
+        </div>
+        <div class="sidebar-brand-text mx-3"><img class="logo2" src="img/letras2.png"></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interfaces
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="listaocorrencias.html">
+          <img src="img/ocorenciaG.png" class="imgSide">
+          <span>Ocorrências</span></a>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="avisos.html">
+          <img src="img/bellG.png" class="imgSide">
+          <span>Anotações</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Ver
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="listareclusos.html">
+          <img src="img/algemasG.png" class="imgSide">
+          <span>Reclusos</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item" id="showInst">
+        <a class="nav-link" href="listafuncionarios.html">
+          <img src="img/policeG.png" class="imgSide">
+          <span>Funcionários</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="listainstituicoes.html">
+          <img src="img/prisonG.png" class="imgSide">
+          <span>Instituições</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column overflow-hidden" style="zoom: 75%;">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span id="nomeUser" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                <img id="avatarUser" class="img-profile rounded-circle">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="perfil.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Perfil
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </li>
+            <li class="my-auto">
+              <input type="checkbox" id="opendoor" name="opendoor">
+              <div id="opendoor2" class="label">
+                <label style="cursor:pointer;" for="opendoor">
+                  <img id="openPuls" class="img-profile rounded-circle picNotes" src="img/bracelhertzv3.png"
+                    style="filter: none; display: none; border: solid gray 0.1rem;">
+                </label>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="row">
+          <div id="ajustarDm" class="col-12" style="max-width: 100%; transition: none;">
+            <div id="content123" class="container-fluid w-75 h-100 pr-2" style="justify-content: center">
+
+              <!-- Page Heading -->
+              <h1 class="h3 mb-4 text-secondary">Adicionar Funcionário</h1>
+
+              <!-- Page Container -->
+              <div id="test123" class="row bg-primary">
+                <div id="test1234" class="col-lg-6 pr-0 pl-0" style="display: -webkit-inline-box;">
+                  <div>
+                    <img src="img/57.jpg" id="foto123">
+                  </div>
+                  <div id="whereithappens" class="slideshow-container h-100"
+                    style="min-inline-size: -webkit-fill-available;">
+                    <div id="whereithappens1" class="card mySlides fade2 mb-5 pb-3" style="display: block; height: 80%">
+
+                      <form>
+                        <h6 class="text-secondary text-center mt-4"> Bem Vindo! Pronto para criar um novo funcionário?
+                        </h6>
+                        <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                          <input type="name" class="space1 form-control form-control-user" id="Fname"
+                            aria-describedby="emailHelp" required>
+                          <span data-placeholder="Nome"></span>
+                        </div>
+                        <div id="nomeinf"
+                          style="display: none; margin-left: 30px; margin-top: -22px; font-size: small; color: red;">
+                          Nome apenas pode conter letras</div>
+
+                        <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                          <input type="email" class=" form-control form-control-user" id="email"
+                            aria-describedby="emailHelp" required>
+                          <span data-placeholder="Email"></span>
+                        </div>
+                        <div id="mailinf"
+                          style="display: none; margin-left: 30px; margin-top: -22px; font-size: small; color: red;">
+                          Email inválido</div>
+
+                        <div class="txtb420  ml-auto mr-auto" style="width: 90%;">
+                          <input type="date" class=" form-control form-control-user focus" id="dataNascimento"
+                            aria-describedby="emailHelp" required>
+                          <span style="top: -5px" data-placeholder="Data de Nascimento"></span>
+                        </div>
+                        <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                          <input type="name" class="nspace form-control form-control-user" id="username"
+                            aria-describedby="emailHelp" required>
+                          <span data-placeholder="Username"></span>
+                        </div>
+                        <div id="existeUser"
+                          style="display: none; margin-left: 30px; margin-top: -22px; font-size: small;color: red;">
+                          Este username já existe</div>
+
+                        <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                          <input type="text" class="form-control form-control-user" id="contact"
+                            aria-describedby="emailHelp" required
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            data-rule="required|minlength-9" maxlength="9">
+                          <span data-placeholder="Contacto"></span>
+                        </div>
+                        <div id="continf"
+                          style="display: none; margin-left: 30px; margin-top: -22px; font-size: small;color: red;">
+                          Contacto tem de conter 9 números</div>
+
+
+
+                      </form>
+
+                    </div>
+                    <div id="whereithappens2" class="card mySlides fade2 mb-5 pb-3" style="display: block;">
+
+                      <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                        <input type="name" class="nspace1 form-control form-control-user" id="nacionalidade"
+                          aria-describedby="emailHelp" required>
+                        <span data-placeholder="Nacionalidade"></span>
+                      </div>
+                      <div id="nacinf"
+                        style="display: none; margin-left: 30px; margin-top: -22px; font-size: small;color: red;">
+                        Nacionalidade apenas pode conter letra</div>
+
+                      <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                        <input type="name" class="space1 form-control form-control-user" id="localidade"
+                          aria-describedby="emailHelp" required>
+                        <span data-placeholder="Localidade"></span>
+                      </div>
+                      <div id="locinf"
+                        style="display: none; margin-left: 30px; margin-top: -22px; font-size: small;color: red;">
+                        Localidade apenas pode conter letra</div>
+
+                      <div class="txtb txtb  ml-auto mr-auto" style="width: 90%;">
+                        <input type="name" class="regMorada form-control form-control-user" id="morada"
+                          aria-describedby="emailHelp" required>
+                        <span data-placeholder="Morada"></span>
+                      </div>
+
+                      <h5 class="text-secondary text-center mt-4"> Fotografias do Funcionário </h5>
+                      <div>
+                        <form>
+                          <input class="margL30 mt-4" id="foto" type="file" accept="image/*" onchange="loadFile(event)">
+                          <div class="mt-4" id="preview"></div>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div id="whereithappens3" class="card mySlides fade2 mb-5 pb-3" style="display: block;">
+                      <!-- <h4 class="text-danger text-center mt-4"> <strong> Danger Zone</strong></h4>-->
+                      <div class="container mt-4 ml-2">
+                        <form>
+                          <div style="display: flex;">
+                            <span for="local" class="text-secondary" style="padding-top: 8px;">Instituição:</span>
+                            <select id="local" class="select-css text-center ml-2 form-control" style="width: 50%;">
+
+                            </select>
+                          </div>
+
+                          <br>
+
+                          <div style="display: flex;">
+                            <span class="text-secondary pt-2" style="padding-top: 8px;" for="type">Cargo:</span>
+                            <select id="instt" class="select-css text-center ml-2 form-control" style="width: 50%;">
+                              <option value="0">Guarda Prisional</option>
+                              <option value="1">Gestor de Instituição</option>
+                              <option value="2">Gestor da Rede Prisional</option>
+                            </select>
+                          </div>
+
+                          <br>
+
+
+                          <br>
+
+                          <div>
+                            <!--    <h5 class="text-success text-center mt-3"><strong> Dados Funcionário:</strong></h5>-->
+                            <div class="txtb ml-auto mr-auto mt-3" style="width: 90%;">
+                              <input type="password" name="password" class="form-control form-control-user"
+                                id="password" aria-describedby="emailHelp"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,24}" required>
+                              <span data-placeholder="Password"></span>
+                              <div class="eye slash" onclick="togglePW()"
+                                style="float: right;margin-top: -2%;margin-right: 2%;color:#1b2c47;">
+                                <div></div>
+                                <div></div>
+
+                              </div>
+
+                            </div>
+                            <div id="message" style="display: none;">
+                              <h6 class="mb-2 font-weight-bold">Password deve conter:</h6>
+                              <div class="row">
+                                <div class="col-6">
+                                  <p id="letter420" class="invalid420">Uma <b>letra minúscula</b></p>
+
+                                </div>
+                                <div class="col-6">
+                                  <p id="capital420" class="invalid420">Uma <b>letra maiúscula</b></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-6">
+                                  <p id="length420" class="invalid420">Mínimo <b>6 caracteres</b></p>
+
+                                </div>
+                                <div class="col-6">
+                                  <p id="lengt420" class="invalid420">Máximo <b>24 caracteres</b></p>
+                                </div>
+                              </div>
+                              <p id="number420" class="invalid420">Um <b>número</b></p>
+
+
+                            </div>
+                            <div class="w-100 text-center">
+                              <input type="submit" class="mt-1 btn btn-secondary" id="botaoRegistar" value="Registar"
+                                required>
+                            </div>
+                          </div>
+
+
+
+                        </form>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div id="dot_dot" class="text-center col-md-6">
+                  <span class="dot dot2" onclick="currentSlide(1)">Passo 1</span>
+                  <span class="dot dot2" onclick="currentSlide(2)">Passo 2</span>
+                  <span class="dot dot2" onclick="currentSlide(3)">Passo 3</span>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+          <div class="col-2 mt-n4 px-0 sidenav" id="rec12" style="transition: 0.5s;">
+            <div class="col px-1">
+              <input type="text" id="myFilter" placeholder="Pesquisar recluso" class="form-control py-2 mr-3 myFilter">
+            </div>
+            <div id="tPulsacoes">
+
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+        <audio loop id="myAudio">
+          <source src="./sounds/alert  sound.mp3" type="audio/ogg">
+          <source src="./sounds/alert  sound.mp3" type="audio/mpeg">
+        </audio>
+        
+        <div id="seeAlert">
+        </div>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>BracelHertZ</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Terminar Sessão</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Tens a certeza que pertendes sair?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" id="botaoLogout">Terminar Sessão</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Script that i added -->
+
+  <script type="text/javascript">
+    $(".txtb input").on("focus", function () {
+      $(this).addClass("focus");
+    });
+
+    $(".txtb input").on("blur", function () {
+      if ($(this).val() == "")
+        $(this).removeClass("focus");
+    });
+  </script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.js"></script>
+  <script src="controller/registo.js"></script>
+  <script src="controller/controlo.js"></script>
+
+  <script>
+    function previewImages() {
+
+      var preview = document.querySelector('#preview');
+
+      if (this.files) {
+        [].forEach.call(this.files, readAndPreview);
+      }
+
+      function readAndPreview(file) {
+
+        // Make sure `file.name` matches our extensions criteria
+        if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+          return alert(file.name + " is not an image");
+        } // else...
+
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+          var image = new Image();
+          image.height = 150;
+          image.style.width = "auto";
+          image.hspace = 17;
+          image.title = file.name;
+          image.src = this.result;
+          if (preview.firstChild !== null) {
+            preview.removeChild(preview.childNodes[0])
+          }
+          preview.appendChild(image);
+        });
+
+        reader.readAsDataURL(file);
+
+      }
+
+    }
+
+    document.querySelector('#foto').addEventListener("change", previewImages);
+  </script>
+
+
+  <script>
+    function togglePW() {
+
+      //toggle password visibility
+      document.querySelector('.eye').classList.toggle('slash');
+
+      //show/hide the password
+      var password = document.querySelector('[name=password]');
+      if (password.getAttribute('type') === 'password') {
+        password.setAttribute('type', 'text');
+      } else {
+        password.setAttribute('type', 'password');
+      }
+    }
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      try {
+        navigator.serviceWorker.register('sw.js');
+        console.log('SW registered');
+      } catch (error) {
+        console.log('SW register failed');
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#1b2c47" />
+
+  <!--<script src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+  <script src='http://localhost:3005/socket.io/socket.io.js'></script>-->
+
+  <title>BracelHertZ - Recluso</title>
+  <link rel="icon" type="image/png" href="img/bracelhertzv3.png" />
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="/img/icons/icon-152x152.png">
+  <style>
+    select {
+      -webkit-appearance: none;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a id="dashBoard" class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon ">
+          <img class="fas fa-laugh-wink logo1" src="img/pul.png">
+        </div>
+        <div class="sidebar-brand-text mx-3"><img class="logo2" src="img/letras2.png"></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interfaces
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link" href="listaocorrencias.html">
+          <img src="img/ocorenciaG.png" class="imgSide">
+          <span>Ocorrências</span></a>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="avisos.html">
+          <img src="img/bellG.png" class="imgSide">
+          <span>Anotações</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Ver
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="listareclusos.html">
+          <img src="img/algemasG.png" class="imgSide">
+          <span>Reclusos</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item" id="showInst" style="display: none;">
+        <a class="nav-link" href="listafuncionarios.html">
+          <img src="img/policeG.png" class="imgSide">
+          <span>Funcionários</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="listainstituicoes.html">
+          <img src="img/prisonG.png" class="imgSide">
+          <span>Instituições</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="zoom: 75%;">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span id="nomeUser" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                <img id="avatarUser" class="img-profile rounded-circle">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="perfil.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Perfil
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </li>
+            <li class="my-auto">
+              <input type="checkbox" id="opendoor" name="opendoor">
+              <div id="opendoor2" class="label">
+                <label style="cursor:pointer;" for="opendoor">
+                  <img id="openPuls" class="img-profile rounded-circle picNotes" src="img/bracelhertzv3.png"
+                    style="filter: none; display: none; border: solid gray 0.1rem;">
+                </label>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="row">
+          <div id="ajustarDm" class="col-12" style="max-width: 100%; transition: none;">
+            <div id="body" class="container-fluid">
+
+
+
+              <!-- Content Row -->
+
+
+
+
+
+
+
+
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 bg-secondary">
+                  <div class="m-0 font-weight-bold text-white full_tab">
+                    <div class="tab_nome">Perfil</div>
+                    <div class="d-flex" type="button tab_time">
+                      <button class="bg-transparent" id="perfil_save_2" style="border: none; display:none"><i
+                          class="fas fa-file-export font-weight-bold text-white"></i></button>
+                      <button id="perfil_alterar_2"
+                        style="background-color:transparent; border: none; display: none;"><i
+                          class="fas fa-user-edit font-weight-bold text-white"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div id="justRec" class="row">
+                    <div class="colr1">
+                      <div class="imagem">
+                        <img data-enlargable style="cursor: zoom-in; max-width: 100%;" id="fotoR" class="imagemlogo">
+                        <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                            style="display: none; text-align: right;"></p>
+                        <div style="min-height: 29px;">
+                          <p id="podeMudar" style="text-align: right; display: none;"><label for="file" id="foto420"
+                              class="mb-0 text-uppercase text-secondary"
+                              style="cursor: pointer; text-align: right;"><img class="sizeEditImg"
+                                src="img/editIMG.png"></label></p>
+                        </div>
+                      </div>
+
+
+
+                      <div class="form-control mt-4" style="height: 50px">
+                        <h5 class="card-title form-control420" style="width: 110px;"><strong>ID Recluso</strong></h5>
+                        <input type="text" class="nspace h6 ml-2 text-primary font-weight-600" id="id_recluso"
+                          style="width: 80%; border: none; background-color: transparent;" readonly="true">
+                        <i id="icon_id_recluso" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h5 class="card-title form-control420"><strong>Nome</strong></h5>
+                        <input type="text" class="space1 h6 ml-2 text-primary font-weight-600" id="nome_recluso"
+                          style="width: 80%; border: none; background-color: transparent;" readonly="true">
+                        <i id="icon_nome_recluso" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h4 class="card-title form-control420" style="width: 185px; margin-bottom: 5px;"><strong>Nível
+                            de Ameaça</strong></h4>
+
+                        <select id="n_ameaca" class="h6 ml-2 text-primary font-weight-600"
+                          style="border: none; width: 80%;" disabled="true">
+                          <option value="1">nível 1</option>
+                          <option value="2">nível 2</option>
+                          <option value="3">nível 3</option>
+                        </select>
+                        <i id="icon_n_ameaca" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h4 class="card-title form-control420" style="width: 65px; margin-bottom: 5px;">
+                          <strong>Cela</strong></h4>
+                        <input type="text" class="nspace h6 ml-2 text-primary font-weight-600" id="n_cela"
+                          style="width: 80%; border: none; background-color: transparent;" readonly="true">
+                        <i id="icon_n_cela" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h4 class="card-title form-control420" style="width: 135px; margin-bottom: 5px;"><strong>ID
+                            Pulseira</strong></h4>
+                        <input type="text" class="nspace h6 ml-2 text-primary font-weight-600" id="id_pulseira"
+                          style="width: 80%; border: none; background-color: transparent;" readonly="true">
+                        <i id="icon_id_pulseira" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="colr2">
+
+                      <div class="w-100" style="margin-top: 8px;">
+                        <div class="full_tab">
+                          <div class="tab_nome">
+                            <h3 class="text-primary font-weight-bold">Receber alerta</h3>
+                          </div>
+                          <div class="tab_time">
+                            <label class="switch" id="switchAB" style="display: none;">
+                              <input id="notiR" type="checkbox" checked>
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <!--Heart Rate-->
+                      <table class="tabelaPuls">
+                        <tbody>
+                          <tr>
+                            <th>
+                              <div class="heart-rate" style="width: 100%; text-align: center;">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="250px"
+                                  height="140px" viewBox="0 0 150 73" enable-background="new 0 0 150 73"
+                                  xml:space="preserve">
+                                  <polyline fill="none" stroke="#ff8800" stroke-width="3" stroke-miterlimit="10"
+                                    points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486" />
+                                </svg>
+                                <div class="fade-in"></div>
+                                <div class="fade-out"></div>
+                              </div>
+                            </th>
+                            <th style="text-align:center;">
+                              <div style="font-size: 2rem;"><span id="pulsRec"></span><span class="span123"
+                                  style="color: red;">&#9829;</span>
+                              </div>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <br>
+                      <div class="w-100 text-primary">
+
+
+
+
+
+                        <table class="tabelaPuls" style="margin-top: 20px; margin-bottom: 20px;">
+                          <tr>
+                            <th class="text-secondary" style="text-align: center;">Pulsação Mínima: <span
+                                class="text-black" id="minValue"></span></th>
+                            <th id="showMin" style="opacity: 0.3;"><input type="range" min="40" max="119" value="79"
+                                id="mminHB" class="sliderPul" disabled="true"></th>
+                          </tr>
+                          <tr>
+                            <th class="text-secondary" style="text-align: center;">Pulsação Máxima: <span
+                                class="text-black" id="maxValue"></span></th>
+                            <th id="showMax" style="opacity: 0.3;"><input type="range" min="40" max="120" value="80"
+                                id="mmaxHB" class="sliderPul" disabled="true"></th>
+                          </tr>
+                        </table>
+
+
+
+
+                      </div>
+                      <br>
+                      <br>
+                      <br>
+
+                      <div class="form-control" style="height: 50px; margin-top: 18px;">
+                        <h5 class="card-title form-control420" style="width: 190px"><strong>Data de
+                            Nascimento</strong></h5>
+                        <input type="date" class="nspace1 h6 ml-2 text-primary font-weight-600" id="dn_recluso"
+                          style="width: 98%; border: none; background-color: transparent;" readonly="true">
+                      </div>
+
+
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h5 class="card-title form-control420" style="width: 135px;"><strong>Nacionalidade</strong>
+                        </h5>
+                        <input type="text" class="nspace1 h6 ml-2 text-primary font-weight-600"
+                          id="nacionalidade_recluso" style="width: 80%; border: none; background-color: transparent;"
+                          readonly="true">
+                        <i id="icon_nacionalidade_recluso" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h5 class="card-title form-control420" style="width: 230px;"><strong>Contacto de
+                            Emergência</strong></h5>
+                        <input type="text" class="h6 ml-2 text-primary font-weight-600" id="contacto_recluso"
+                          style="width: 80%; border: none; background-color: transparent;" readonly="true"
+                          onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                          data-rule="required|minlength-9" maxlength="9">
+                        <i id="icon_contacto_recluso" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h4 class="card-title form-control420" style="width: 395px; margin-bottom: 5px;">
+                          <strong>Contacto de Emergência
+                            Alternativo</strong></h4>
+                        <input type="text" class="h6 ml-2 text-primary font-weight-600"
+                          id="contacto_recluso_alternativo"
+                          style="width: 80%; border: none; background-color: transparent;" readonly="true"
+                          onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                          data-rule="required|minlength-9" maxlength="9">
+                        <i id="icon_contacto_recluso_alternativo" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+                      <br>
+
+                      <div class="form-control" style="height: 50px">
+                        <h4 class="card-title form-control420" style="width: 125px; margin-bottom: 5px;">
+                          <strong>Instituição</strong>
+                        </h4>
+                        <select id="id_instituicao" class=" h6 ml-2 text-primary font-weight-600"
+                          style="border: none; width: 80%;" disabled="true">
+
+                        </select>
+                        <i id="icon_id_instituicao" class="fas fa-pen text-primary bg-transparent pr-3"
+                          style="float:right; display: none"></i>
+                      </div>
+
+
+                    </div>
+
+
+                  </div>
+                  <br>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <!------------------------------------------------- Registo Criminal ---------------------------------------------->
+
+                <div class="colr11">
+
+
+                  <div class="w-100">
+                    <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 bg-secondary">
+                        <div class="m-0 font-weight-bold text-white full_tab">
+                          <div id="tabCH" class="tab_nome">Registo Criminal
+                          </div>
+                          <div class="tab_time float-right">
+                            <i id="trashRegisto" type="button" class="fas fa-trash mr-2" style="display: none;"></i>
+                            <i id="editRegisto" type="button" class="fas fa-pen" style="display: none;"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <ul id="listCrimes"
+                          style="padding-left: 20px; max-height: 220px; overflow-y: scroll;">
+
+                        </ul>
+                        <div id="addRegisto" style="display: none;">
+                          <div class="w-100 row">
+                            <div style="width:133px; margin-left: 20px;" class="mt-2">Data de emissão:</div>
+                            <input class="form-control" style="width:180px;" type="date" id="dataEmissao">
+                          </div>
+                          <div class="w-100 form-control full_tab">
+                            <input id="novoRegisto" type="text" placeholder="Escreva aqui" class="1spaceand tab_nome"
+                              style="border: none;">
+                            <span id="postRegisto" class="fa fa-plus-circle cursor-pointer tab_time"
+                              style="text-align: right;"></span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!----------------------------------------- Receitas Médicas ---------------------------------------->
+                <div class="colr11">
+
+
+                  <div class="w-100">
+                    <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 bg-secondary">
+                        <div class="m-0 font-weight-bold text-white full_tab">
+                          <div id="tabCH2" class="tab_nome">Cuidados a ter com o recluso
+                          </div>
+                          <div class="tab_time float-right">
+                            <i id="trashFicha" type="button" class="fas fa-trash mr-2" style="display: none;"></i>
+                            <i id="editFicha" type="button" class="fas fa-pen" style="display: none;"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <ul id="listMedica"
+                          style="padding-left: 20px; max-height: 254px; overflow-y: scroll;">
+
+                        </ul>
+                        <div id="addFicha" style="display: none;">
+                          <div class="w-100 form-control full_tab">
+                            <input id="novaFicha" type="text" placeholder="Escreva aqui" class="1spaceand tab_nome"
+                              style="border: none;">
+                            <span id="postFicha" class="fa fa-plus-circle cursor-pointer tab_time"
+                              style="text-align: right;"></span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+
+
+
+              </div>
+
+              <!-- Content Row 2-->
+              <div class="w-100">
+                <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3 bg-secondary">
+                    <div class="m-0 font-weight-bold text-white full_tab">
+                      <div class="tab_nome">Anotações refentes ao utilizador</div>
+                      <div id="naoAnotar" style="display: none;">
+                        <div class="d-flex" type="button">
+                          <div type="button" data-toggle="modal" data-target="#NotaModal"
+                            class="d-flex d-sm btn btn-sm btn-white font-weight-bold shadow-sm"><i
+                              class="mt-1 mr-1 fas fa-plus fa-xs tab_time text-secondary"></i> Adicionar</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card Body -->
+                  <div id="dispAnotacoes" style="max-height: 370px; overflow-y: scroll;">
+
+                  </div>
+
+                </div>
+              </div>
+
+
+              <!-- DataTales Example -->
+              <div class="card shadow mb-4" id="TabLogs" style="display: none;">
+                <div class="card-header bg-secondary">
+                  <div class="m-0 font-weight-bold text-white full_tab">
+                    <div class="tab_nome">Atividades</div>
+                  </div>
+                </div>
+                <div class="card-body" style="max-height: 292px;">
+                  <div class="table-responsive">
+                    <table class="table table-bordered scroll" id="dataTable" width="100%" cellspacing="0">
+                      <thead class="bg-primary text-white">
+                        <tr>
+                          <th>Hora</th>                          
+                          <th>Ação</th>
+                          <th>Por quem</th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="LogsRec">
+
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <br>
+
+            </div>
+          </div>
+
+          <div class="col-2 mt-n4 px-0 sidenav" id="rec12" style="transition: 0.5s;">
+            <div class="col px-1">
+              <input type="text" id="myFilter" placeholder="Pesquisar recluso" class="form-control py-2 mr-3 myFilter">
+            </div>
+            <div id="tPulsacoes">
+
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+        <audio loop id="myAudio">
+          <source src="./sounds/alert  sound.mp3" type="audio/ogg">
+          <source src="./sounds/alert  sound.mp3" type="audio/mpeg">
+        </audio>
+
+        <div id="seeAlert">
+        </div>
+
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>BracelHertZ</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Terminar Sessão</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Tens a certeza que pertendes sair?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" id="botaoLogout">Terminar Sessão</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confimação apagar nota Modal-->
+  <div class="modal t-1 fade" id="confModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Apagar Anotação</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Deseja mesmo apagar esta anotação?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" id="botaoConf">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nota Modal-->
+  <div class="modal fade" id="NotaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <form class="modal-content">
+        <div class="modal-header bg-gradient-primary text-white" style="margin-right:-0.5px;">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Nova Anotação</h5>
+          <button class="close text-white" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <textarea id="titleN" class="1spaceand form-control mb-1 textarea2" rows="1" cols="1"
+            placeholder="Assunto (título)"></textarea>
+          <textarea id="descriptionN" class="1spaceand form-control textarea1" rows="6" cols="60"
+            placeholder="Escreva aqui a nota"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <input type="submit" class="btn btn-primary" id="enviar_novo" value="Criar">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+
+  <!-- Page level custom scripts -->
+
+  <script src="controller/controlo.js"></script>
+  <script src="controller/recluso.js"></script>
+  <script src="controller/anotFRI.js"></script>
+
+
+  <script>
+
+    $('img[data-enlargable]').addClass('img-enlargable').click(function () {
+      var src = $(this).attr('src');
+      var modal;
+      function removeModal() { modal.remove(); $('body').off('keyup.modal-close'); }
+      modal = $('<div>').css({
+        background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+        backgroundSize: 'contain',
+        width: '100%', height: '100%',
+        position: 'fixed',
+        zIndex: '10000',
+        top: '0', left: '0',
+        cursor: 'zoom-out'
+      }).click(function () {
+        removeModal();
+      }).appendTo('body');
+      //handling ESC
+      $('body').on('keyup.modal-close', function (e) {
+        if (e.key === 'Escape') { removeModal(); }
+      });
+    });
+
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      try {
+        navigator.serviceWorker.register('sw.js');
+        console.log('SW registered');
+      } catch (error) {
+        console.log('SW register failed');
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

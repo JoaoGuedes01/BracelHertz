@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>BracelHertZ - Recuperar Palavra-Passe</title>
+  <link rel="icon" type="image/png" href="img/bracelhertzv3.png" />
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary2">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <!--<div class="col-lg-6 d-none d-lg-block bg-login-image2 pr-0"></div>-->
+              <div class="col-lg-6 px-0" style="margin-left: 220px;" ss>
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Recuperar Palavra-passe</h1>
+                  </div>
+                  <div class="user">
+                    <div>
+                      Para poder alterar a palavra-passe é necessário que introduza o seu username. <br>Depois de
+                      introduzir o username será enviada uma mensagem para o seu telemóvel com um token que terá de
+                      introduzir mais a frente para poder concluir a alterassão da palavra-passe.
+
+                    </div><br>
+
+                    <div class="txtb">
+                      <input type="name" class="form-control form-control-user" id="username"
+                        aria-describedby="emailHelp">
+                      <span data-placeholder="Username"></span>
+                    </div>
+
+                    <button id="botaoEnvSMS" class="btnToken btn btn-primary btn-user btn-block" style="margin-top: 30px;">
+                      Enviar Token
+                    </button>
+                    <br>
+                    <div id="NewPass" style="display: none;">
+                      <div class="txtb">
+                        <input type="text" class="form-control form-control-user" id="token"
+                          aria-describedby="emailHelp">
+                        <span data-placeholder="Token"></span>
+                      </div>
+                      <div class="txtb">
+                        <input type="password" class="form-control form-control-user" id="password" name="password"
+                          aria-describedby="emailHelp">
+                        <span data-placeholder="Palavra-passe nova"></span>
+                        <div class="eye slash" onclick="togglePW()"
+                          style="float: right;margin-top: -6%;margin-right: 4%;color:#1b2c47;">
+                          <div></div>
+                          <div></div>
+                        </div>
+
+                      </div>
+                      <button id="botaoRecPass" class="btnToken btn btn-secondary btn-user btn-block" style="margin-top: 30px;">
+                        Alterar Palavra-passe
+                      </button>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- camara Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 680px;height: 510px;">
+          <div class="modal-header">
+            <div id="vid-controls">
+              <video id="vid-show" autoplay></video>
+              <input id="vid_take" type="button" value="Take Photo" />
+              <div id="vid-canvas"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.js"></script>
+    <script src="./controller/altPassToken.js"></script>
+
+
+    <script>
+      function doSomething() {
+        var video = document.getElementById("vid-show"),
+          canvas = document.getElementById("vid-canvas"),
+          take = document.getElementById("vid_take");
+
+        // [2] ASK FOR USER PERMISSION TO ACCESS CAMERA
+        // WILL FAIL IF NO CAMERA IS ATTACHED TO COMPUTER
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            // [3] SHOW VIDEO STREAM ON VIDEO TAG
+            video.srcObject = stream;
+            video.play();
+
+            // [4] WHEN WE CLICK ON "TAKE PHOTO" BUTTON
+            take.addEventListener("click", function () {
+              // Create snapshot from video
+              var draw = document.createElement("canvas");
+              draw.width = video.videoWidth;
+              draw.height = video.videoHeight;
+              var context2D = draw.getContext("2d");
+              context2D.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+              // Put into canvas container
+              canvas.innerHTML = "";
+              //canvas.appendChild(draw);
+            });
+          })
+          .catch(function (err) {
+            document.getElementById("vid-controls").innerHTML = "Please enable access and attach a camera";
+          });
+      } 
+    </script>
+
+    <script type="text/javascript">
+      $(".txtb input").on("focus", function () {
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur", function () {
+        if ($(this).val() == "")
+          $(this).removeClass("focus");
+      });
+
+    </script>
+
+
+    <script>
+      function togglePW() {
+
+        //toggle password visibility
+        document.querySelector('.eye').classList.toggle('slash');
+
+        //show/hide the password
+        var password = document.querySelector('[name=password]');
+        if (password.getAttribute('type') === 'password') {
+          password.setAttribute('type', 'text');
+        } else {
+          password.setAttribute('type', 'password');
+        }
+      }
+    </script>
+
+    <script>
+      function togglePW() {
+
+        //toggle password visibility
+        document.querySelector('.eye').classList.toggle('slash');
+
+        //show/hide the password
+        var password = document.querySelector('[name=password]');
+        if (password.getAttribute('type') === 'password') {
+          password.setAttribute('type', 'text');
+        } else {
+          password.setAttribute('type', 'password');
+        }
+      }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#1b2c47" />
+
+  <title>BracelHertZ - Login</title>
+  <link rel="icon" type="image/png" href="img/bracelhertzv3.png" />
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="/img/icons/icon-152x152.png">
+  <style>
+    video {
+      position: absolute;
+      top: 60px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 720px;
+    }
+
+    canvas {
+      position: absolute;
+      top: 60px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
+
+  <script defer src="./face/face-api.min.js"></script>
+  <script defer src="./face/script.js"></script>
+
+</head>
+
+<body class="bg-gradient-primary2" style="overflow-y: hidden;">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0" id="sizeVideo">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image2 pr-0"></div>
+              <div class="col-lg-6 px-0" style="margin-right: -10px;" ss>
+                <div class="p-5" style="margin-top: 80px;">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Bem Vindo!</h1>
+                  </div>
+                  <form class="user">
+                    <div class="text-center">
+                      <span data-toggle="modal" id="span" data-target="#logoutModal" onclick="startVideo()"
+                        style="width: 48px; height: 48px;">
+                        <img src="img/reconhecimento.png" style="width: 48px;height:48px;margin-bottom: 5px;">
+                      </span>
+                    </div>
+                    <div class="txtb">
+                      <input type="name" class="form-control form-control-user" id="username"
+                        aria-describedby="emailHelp">
+                      <span data-placeholder="Username"></span>
+                    </div>
+                    <div class="txtb">
+                      <input type="password" id="password" name="password" class="form-control form-control-user">
+                      <span data-placeholder="Password"></span>
+                      <div class="eye slash" onclick="togglePW()"
+                        style="float: right;margin-top: -6%;margin-right: 4%;color:#1b2c47;">
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <button id="botaoLogin" class="btn btn-primary btn-user btn-block" style="margin-top: 50px;">
+                      Autenticar
+                    </button>
+                    <br>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <video style="display: none; z-index: 3; width: 720px; height: 540px;" id="video" autoplay muted></video>
+  <button class="mx-auto" style="display: none;" id="btnVideo" onclick="endVideo()">Cancelar</button>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.js"></script>
+  <script src="./controller/login.js"></script>
+
+
+  <script type="text/javascript">
+    $(".txtb input").on("focus", function () {
+      $(this).addClass("focus");
+    });
+
+    $(".txtb input").on("blur", function () {
+      if ($(this).val() == "")
+        $(this).removeClass("focus");
+    });
+
+  </script>
+
+
+  <script>
+    function togglePW() {
+
+      //toggle password visibility
+      document.querySelector('.eye').classList.toggle('slash');
+
+      //show/hide the password
+      var password = document.querySelector('[name=password]');
+      if (password.getAttribute('type') === 'password') {
+        password.setAttribute('type', 'text');
+      } else {
+        password.setAttribute('type', 'password');
+      }
+    }
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      try {
+        navigator.serviceWorker.register('sw.js');
+        console.log('SW registered');
+      } catch (error) {
+        console.log('SW register failed');
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
